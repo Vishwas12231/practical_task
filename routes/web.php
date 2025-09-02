@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Mail;
 */
 
 // Home
-Route::get('/', function(){ return view('welcome'); })->name('home');
+Route::get('/', function () {
+    return redirect()->route('admin.login.form');
+})->name('home');
 
 Route::get('/send-test-mail', function () {
     Mail::raw('This is a test email from Laravel using Gmail SMTP.', function ($message) {
